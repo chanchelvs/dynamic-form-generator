@@ -1,19 +1,28 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // ✅ Modern ESM setup required for Angular 20
+    "target": "ES2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+
+    // ✅ Recommended Angular/TS settings
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+
+    // ✅ Compatibility and metadata
     "skipLibCheck": true,
     "isolatedModules": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "ES2022",
-    "module": "preserve"
+    "useDefineForClassFields": false,
+    "importHelpers": false,
+    "baseUrl": "./",
+
+    // ✅ Add Node types for better IDE experience (optional)
+    "types": ["node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
