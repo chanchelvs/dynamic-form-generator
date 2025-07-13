@@ -4,11 +4,9 @@
       *ngFor="let tab of tabs; trackBy: trackByTabId"
       class="tab-button"
       [class.active]="activeTabId === tab.id"
-      [class.has-changes]="hasUnsavedChanges(tab.id)"
       (click)="switchTab(tab.id)"
     >
       {{ tab.label }}
-      <span *ngIf="hasUnsavedChanges(tab.id)" class="changes-indicator">●</span>
     </button>
   </div>
 
@@ -16,27 +14,14 @@
     <div *ngFor="let tab of tabs; trackBy: trackByTabId"
          [class.hidden]="activeTabId !== tab.id"
          class="tab-panel">
-      <!-- <app-dynamic-form
+      <app-dynamic-form
         [schema]="tab.schema"
         [initialData]="getTabData(tab.id)"
         (formValueChange)="onFormValueChange(tab.id, $event)"
         (formSubmit)="onFormSubmit(tab.id, $event)"
-      ></app-dynamic-form> -->
+      ></app-dynamic-form>
     </div>
   </div>
 
-  <div class="tab-actions">
-    <button
-      class="clear-button"
-      (click)="clearCurrentTab()"
-    >
-      Clear Current Tab
-    </button>
-    <button
-      class="clear-all-button"
-      (click)="clearAllTabs()"
-    >
-      Clear All Tabs
-    </button>
-  </div>
+
 </div>

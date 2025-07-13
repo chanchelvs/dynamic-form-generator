@@ -1,1 +1,54 @@
-<p>dynamic-form works!</p>
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()" class="dynamic-form">
+    <div 
+      *ngFor="let field of schema; trackBy: trackByFieldName" 
+      class="form-field"
+    >
+      <label [for]="field.name" class="form-label">
+        {{ field.label }}
+        <span *ngIf="field.required" class="required">*</span>
+      </label>
+
+      <input
+        *ngIf="field.type === 'text' || field.type === 'email' || field.type === 'password'"
+        [type]="field.type"
+        [id]="field.name"
+        [formControlName]="field.name"
+        [placeholder]="field.placeholder || ''"
+        class="form-input"
+        [class.error]="getFieldError(field.name)"
+      />
+
+      <div *ngIf="field.type === 'checkbox'" class="checkbox-wrapper">
+        <input
+          type="checkbox"
+          [id]="field.name"
+          [formControlName]="field.name"
+          class="form-checkbox"
+        />
+        <label [for]="field.name" class="checkbox-label">
+          {{ field.label }}
+        </label>
+      </div>
+
+      <div *ngIf="getFieldError(field.name)" class="error-message">
+        {{ getFieldErrorMessage(field.name) }}
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button 
+        type="button" 
+        class="reset-button"
+        (click)="onReset()"
+      >
+        Reset
+      </button>
+      <button 
+      type="submit" 
+      class="submit-button"
+      [disabled]="dynamicForm.invalid"
+    >
+      Submit
+    </button>
+    </div>
+  </form>

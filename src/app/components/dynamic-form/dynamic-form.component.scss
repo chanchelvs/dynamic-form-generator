@@ -1,0 +1,121 @@
+$form-color: #f4f6f9;
+$form-background: #ffffff;
+$button-color: #3dc5a2;
+$text-color:  #6b7280;
+.dynamic-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+    background: $form-background;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-field {
+    margin-bottom: 24px;
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: $text-color;
+    font-size: 14px;
+  }
+
+  .required {
+    color: #ef4444;
+  }
+
+  .form-input,
+  .form-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    background: white;
+  }
+
+  .form-input:focus,
+  .form-select:focus {
+    outline: none;
+    border-color: $form-color;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .form-input.error,
+  .form-select.error {
+    border-color: #ef4444;
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .form-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: $form-color;
+  }
+
+  .checkbox-label {
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+  }
+
+  .error-message {
+    margin-top: 4px;
+    color: #ef4444;
+    font-size: 14px;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .submit-button,
+  .reset-button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .submit-button {
+    background: #f3f4f6;
+    color: #374151;
+    flex: 1;
+  }
+
+  .submit-button:hover:not(:disabled) {
+    background: $button-color;
+    transform: translateY(-1px);
+  }
+
+  .submit-button:disabled {
+    background: #e5e7eb;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .reset-button {
+    background: #f3f4f6;
+    color: #374151;
+    border: 2px solid #e5e7eb;
+  }
+
+  .reset-button:hover {
+    background: #e5e7eb;
+    transform: translateY(-1px);
+  }

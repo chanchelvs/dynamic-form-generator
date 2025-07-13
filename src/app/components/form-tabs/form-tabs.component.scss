@@ -1,3 +1,5 @@
+$form-color: #3dc5a2;
+$background-color: #ffffff;
 .tabbed-forms {
   max-width: 800px;
   margin: 0 auto;
@@ -6,7 +8,7 @@
 
 .tab-header {
   display: flex;
-  border-bottom: 3px solid #e5e7eb;
+  border-bottom: 3px solid $background-color;
   margin-bottom: 24px;
   gap: 2px;
 }
@@ -14,7 +16,7 @@
 .tab-button {
   padding: 16px 24px;
   border: none;
-  background: #f9fafb;
+  background: $background-color;
   color: #6b7280;
   font-weight: 600;
   font-size: 16px;
@@ -29,13 +31,13 @@
 
 .tab-button:hover {
   background: #f3f4f6;
-  color: #374151;
+  color: $form-color;
 }
 
 .tab-button.active {
   background: white;
-  color: #3b82f6;
-  border-bottom: 3px solid #3b82f6;
+  color: $form-color;
+  border-bottom: 3px solid $background-color;
   margin-bottom: -3px;
 }
 
@@ -45,11 +47,11 @@
 
 .tab-button.active.has-changes {
   background: white;
-  color: #f59e0b;
+  color: $form-color;
 }
-
+ 
 .changes-indicator {
-  color: #f59e0b;
+  color: $form-color;
   font-size: 12px;
 }
 

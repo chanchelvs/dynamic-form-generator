@@ -1,5 +1,5 @@
 export interface FormFieldSchema {
-  type: 'text' | 'email' | 'password' | 'checkbox' | 'number' | 'select';
+  type: 'text' | 'email' | 'password' | 'checkbox';
   label: string;
   name: string;
   required?: boolean;

@@ -1,13 +1,15 @@
+import { TabFormState, FormData } from 'src/app/types/form.type';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { TabFormState, FormData } from 'src/app/types/form.type';
+
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
-  private readonly STORAGE_KEY = 'dynamic-forms-state';
+  private readonly STORAGE_KEY = 'forms-state';
 
   private tabStatesSubject = new BehaviorSubject<Map<string, TabFormState>>(
     this.loadFromStorage()
@@ -34,22 +36,6 @@ export class FormService {
 
     this.tabStatesSubject.next(newStates);
   }
-
-  getTabState(tabId: string): TabFormState | null {
-    return this.tabStatesSubject.value.get(tabId) || null;
-  }
-
-  clearTabState(tabId: string): void {
-    const currentStates = this.tabStatesSubject.value;
-    const newStates = new Map(currentStates);
-    newStates.delete(tabId);
-    this.tabStatesSubject.next(newStates);
-  }
-
-  clearAllStates(): void {
-    this.tabStatesSubject.next(new Map());
-  }
-
   private saveToStorage(states: Map<string, TabFormState>): void {
     try {
       const statesObject = Object.fromEntries(states);
